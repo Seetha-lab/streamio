@@ -4,6 +4,11 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 const StreamChat = require('stream-chat').StreamChat;
+
+app.get("/", (req, res) => {
+    res.json("Working");
+})
+
 //Server Side
 
 //Instantiating Client
@@ -237,6 +242,13 @@ async function funsendmessage(req, res){
 }
 
 
+
+
+app.get("/add", (req, res) => {
+    channel.addMembers(['Seetha', 'Lakshmi'])
+      .then(response => res.json(response))
+      .catch(err => res.json("Error fetching data"))
+})
                     
 
 //Edit a message
